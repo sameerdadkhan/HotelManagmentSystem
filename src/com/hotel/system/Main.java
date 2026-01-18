@@ -9,7 +9,7 @@ public class Main {
 
         // 1. Initialize Hotel Network
         HotelChain network = new HotelChain("Grand Royal Hotels");
-        Hotel branch = new Hotel("Lahore Central Branch");
+        Hotel branch = new Hotel("Karachi Central Branch");
 
         // Define Inventory Types
         RoomType standard = new RoomType("Standard", 80.0);
@@ -28,7 +28,7 @@ public class Main {
         System.out.println("[INFO] Network online. Branch connected: " + branch.getName());
 
         // 2. Register Actors (Guest & Payer)
-        Guest newGuest = new Guest("Ali Hashir Rana", "Lahore, Punjab");
+        Guest newGuest = new Guest("Sameer Dad Khan", "Karachi, Sindh");
         ReservePayer account = new ReservePayer("5555-6666-7777-8888", "ACC-101");
         
         System.out.println("[INFO] Guest Profile Loaded: " + newGuest.getName());
@@ -39,12 +39,12 @@ public class Main {
             LocalDate today = LocalDate.now();
             LocalDate checkout = LocalDate.now().plusDays(5);
             
-            Reservation booking = network.makeReservation("Lahore Central Branch", today, checkout, account, suite, 1);
+            Reservation booking = network.makeReservation("Karachi Central Branch", today, checkout, account, suite, 1);
             System.out.println("Reservation Confirmed! Reference #: " + booking.getNumber());
             
             // 4. Execute Use Case: Check-In
             System.out.println("\n--- Initiating Check-In Protocol ---");
-            network.checkInGuest("Lahore Central Branch", 401, newGuest);
+            network.checkInGuest("Karachi Central Branch", 401, newGuest);
             System.out.println("Check-In Complete. Room 401 status updated to OCCUPIED.");
 
         } catch (Exception ex) {
